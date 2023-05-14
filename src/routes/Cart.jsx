@@ -1,7 +1,12 @@
+import CartPage from "../components/cart-page-components/CartPage";
+
 const Cart = () => {
     return (
-        <h1>Cart page!</h1>
-    );
+    <div>
+      <h1>Cart</h1>
+      {/* <CartPage /> */}
+    </div>
+);
 }
  
 export default Cart;

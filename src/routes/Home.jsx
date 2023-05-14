@@ -1,6 +1,6 @@
 import FilterBar from "../components/Filterbar";
-import Navbar from "../components/Navbar";
 import Product from "../components/Product";
+import Banner from "../components/Discountbanner";
 import { useState } from "react";
 import products from "../data/products";
 
@@ -24,7 +24,8 @@ const Home = () => {
       }
 
       return (
-        <div className="home">
+        <div className="home"> 
+          <Banner/>
           <FilterBar onFilter={(filter) => {setFilters(filter)}} />
           <div className="grid grid-cols-3 gap-4">
                 {products.filter(applyFilters).map((product) => (
