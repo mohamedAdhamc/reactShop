@@ -1,9 +1,12 @@
 import CartPage from "../components/cart-page-components/CartPage";
 
 const Cart = () => {
+    const wStyle = {
+        width: '65vw',
+    };
     return (
-    <div>
-      <h1>Cart</h1>
+    <div style={wStyle}>
+      <h1 className=" pb-[8vh]">My Shopping Cart</h1>
       <CartPage />
     </div>
 );

@@ -7,17 +7,19 @@ const CartPage = () => {
   // Fetch cart data and store it in a state
 
   return (
-    <div className="container mx-auto py-8">
-      <h1 className="text-2xl font-bold mb-4">Your Cart</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div>
-          <CartItems />
-          {/* Render other components related to cart items */}
-        </div>
-        <div>
-          <OrderSummary subtotal={100} discount={20} total={80} />
-          {/* Render other components related to order summary */}
-          <CheckoutButton />
+    <div className=" bg-gray-50 shadow-md rounded-lg overflow-hidden">
+      <div className="p-8">
+        <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
+        <div className="flex flex-col md:flex-row">
+          <div className="w-full md:w-2/3 pr-4">
+            <CartItems />
+            {/* Render other components related to cart items */}
+          </div>
+          <div className="w-full md:w-1/3">
+            <OrderSummary subtotal={100} discount={20} total={80} />
+            {/* Render other components related to order summary */}
+            <CheckoutButton />
+          </div>
         </div>
       </div>
     </div>
