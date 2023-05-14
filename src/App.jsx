@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
 import Product from './components/Product'
+import FilterBar from './components/Filterbar'
 
 function App() {
 
@@ -27,12 +28,20 @@ function App() {
     // Add more products as needed
   ];
 
+  const [filters, setFilters] = useState({});
+
+  const handleFilter = (selectedFilters) => {
+    // Update the filters state with the selected filters
+    setFilters(selectedFilters);
+  };
+
   return (
     <div className="home">
       {/* <h1 className="text-3xl font-bold underline">
         Hello world!
       </h1> */}
       <Navbar />
+      <FilterBar onFilter={handleFilter} />
      <div className="grid grid-cols-3 gap-4">
           {products.map((product) => (
             <Product
