@@ -8,14 +8,17 @@ const Home = () => {
     
       const [filters, setFilters] = useState({rating: "all", priceRange: "all", discount: "all"});
     
+      const ratingFilter = (item) => {
+        return filters.rating !== "all" ? item.rating > parseInt(filters.rating) : true;
+      }
+
+      const priceFilter = (item) => {
+        return filters.priceRange !== "all" 
+        ? filters.priceRange === "inf" ? item.price > 500 : item.price < parseInt(filters.priceRange)
+        : true;
+      }
       const applyFilters = (item) => {
-        if (filters.rating !== "all") {
-          return item.rating > parseInt(filters.rating);
-        }
-        if (filters.priceRange !== "all") {
-          return filters.priceRange === "inf" ? item.price > 500 : item.price < parseInt(filters.priceRange);
-        }
-        return true;
+        return ratingFilter(item) && priceFilter(item);
       }
 
       return (

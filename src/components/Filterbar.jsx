@@ -20,7 +20,6 @@ const FilterBar = ({ onFilter }) => {
               onChange={(e) => setRating(e.target.value)}
             >
               <option value="all">All</option>
-              <option value="5">5 Stars</option>
               <option value="4">4 Stars &amp; Up</option>
               <option value="3">3 Stars &amp; Up</option>
               <option value="2">2 Stars &amp; Up</option>
