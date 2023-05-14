@@ -1,5 +1,5 @@
-
 const OrderSummary = ({ subtotal, discount, total }) => {
+  
   return (
     <div className=" bg-gray-200 p-4 rounded-md">
       <h2 className="text-lg font-bold mb-4">Order Summary</h2>

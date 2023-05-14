@@ -2,9 +2,20 @@ import React from 'react';
 import CartItems from './CartItems';
 import OrderSummary from './OrderSummary';
 import CheckoutButton from './CheckoutButton';
+import products from '../../data/products';
 
 const CartPage = ({cartItemIds, setCartItemIds}) => {
   // Fetch cart data and store it in a state
+  const cartItems = products.filter((item) => {return cartItemIds.includes(item.id)})
+  let subtotal = 0;
+  let discount = 0;
+  let total = 0;
+
+  cartItems.map((item) => {
+    subtotal += item.price;
+    discount += item.discount * 0.01 * item.price;
+    total += (100 - item.discount) * 0.01 * item.price;
+  })
 
   return (
     <div className=" bg-gray-50 shadow-md rounded-lg overflow-hidden">
@@ -16,9 +27,9 @@ const CartPage = ({cartItemIds, setCartItemIds}) => {
             {/* Render other components related to cart items */}
           </div>
           <div className="w-full md:w-1/3">
-            <OrderSummary subtotal={100} discount={20} total={80} />
+            <OrderSummary subtotal={subtotal.toFixed(2)} discount={discount.toFixed(2)} total={total.toFixed(2)} />
             {/* Render other components related to order summary */}
-            <CheckoutButton />
+            <CheckoutButton cartItemIds={cartItemIds}/>
           </div>
         </div>
       </div>
