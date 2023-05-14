@@ -7,7 +7,7 @@ const Banner = () => {
         <div className="flex items-center justify-center">
           <div className="relative bg-cover bg-center w-full md:w-2/3 lg:w-1/2 rounded-lg overflow-hidden shadow-lg">
             <img
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover "
               src="https://images.pexels.com/photos/8538756/pexels-photo-8538756.jpeg?auto=compress&cs=tinysrgb&w=1600"
               alt="Chocolates Banner"
             />
