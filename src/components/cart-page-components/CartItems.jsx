@@ -7,7 +7,7 @@ const CartItems = () => {
     <div>
       {/* Map over cart items */}
       {/* Render a CartItem component for each item */}
-      <CartItem />
+      <CartItem item={{}}/>
     </div>
   );
 };
