@@ -4,6 +4,7 @@ const FilterBar = ({ onFilter }) => {
   const [rating, setRating] = useState('all');
   const [priceRange, setPriceRange] = useState('all');
   const [reviews, setReviews] = useState('all');
+  const [sort, setSort] = useState('default');
 
   return (
     <div className="bg-gray-100 py-4 px-6 shadow-md mb-5">
@@ -24,10 +25,15 @@ const FilterBar = ({ onFilter }) => {
             optionValues={["all", "10", "50", "200", "500", "1000"]} value={reviews}
           />
 
+          <FilterItem id={"sort"} label={"Sort by:"} onChange={(e) => setSort(e.target.value)}
+            options={["Default", "Price", "Discount", "Rating", "Reviews"]}
+            optionValues={["default", "price", "discount", "rating", "reviews"]} value={sort}
+          />
+
         </div>
         <button
           className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded shadow-md"
-          onClick={() => {onFilter({rating: rating, priceRange: priceRange, reviews: reviews})}}
+          onClick={() => {onFilter({rating: rating, priceRange: priceRange, reviews: reviews, sort: sort})}}
         >
           Apply Filters
         </button>
@@ -50,7 +56,7 @@ const FilterItem = ({ id, label, value, onChange, options, optionValues }) => {
             >
               {options.map((option, i) => {
                 return (
-                  <option value={optionValues[i]}>{option}</option>
+                  <option value={optionValues[i]} key={i}>{option}</option>
                 )
               })}
             </select>

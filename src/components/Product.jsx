@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Product = ({ id, title, price, imageUrl, description, rating, reviews, cartItemIds, setCartItemIds }) => {
+const Product = ({ id, title, price, imageUrl, description, rating, reviews, discount,cartItemIds, setCartItemIds }) => {
 
   const addProduct = () => {
     if (!cartItemIds.includes(id)) {
@@ -15,6 +15,7 @@ const Product = ({ id, title, price, imageUrl, description, rating, reviews, car
       <div className="p-4">
         <h2 className="text-gray-900 font-bold text-lg">{title}</h2>
         <p className="text-gray-700 mt-2">${price}</p>
+        {discount != 0 && <p className="text-red-500">Discount: {discount} %</p> }
         <div className="flex items-center mt-2">
           <span className="text-yellow-500">
             {rating}
