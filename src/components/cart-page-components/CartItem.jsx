@@ -2,7 +2,6 @@ import React from 'react';
 
 const CartItem = ({ item, id, cartItemIds, setCartItemIds }) => {
   const removeItem = () => {
-    console.log(cartItemIds);
     setCartItemIds(cartItemIds.filter((cartItemId) => {return cartItemId != id}));
   }
 
