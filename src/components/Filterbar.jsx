@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const FilterBar = ({ onFilter }) => {
   const [rating, setRating] = useState('all');
   const [priceRange, setPriceRange] = useState('all');
-  const [discount, setDiscount] = useState('all');
+  const [reviews, setReviews] = useState('all');
 
   return (
     <div className="bg-gray-100 py-4 px-6 shadow-md mb-5">
@@ -19,28 +19,15 @@ const FilterBar = ({ onFilter }) => {
             optionValues={["all", "50", "100", "200", "500", "inf"]} value={priceRange}
           />
 
-          <div className="flex items-center space-x-2">
-            <label htmlFor="discountFilter" className="text-gray-800 font-medium">
-              Discount:
-            </label>
-            <select
-              id="discountFilter"
-              className="border border-gray-300 rounded p-1"
-              value={discount}
-              onChange={(e) => setDiscount(e.target.value)}
-            >
-              <option value="all">All</option>
-              <option value="10">10% Off</option>
-              <option value="20">20% Off</option>
-              <option value="30">30% Off</option>
-              <option value="40">40% Off</option>
-              <option value="50">50% Off</option>
-            </select>
-          </div>
+          <FilterItem id={"reviewFilter"} label={"Reviews:"} onChange={(e) => setReviews(e.target.value)}
+            options={["All", "More than 10", "More than 50", "More than 200", "More than 500", "More than 1000"]}
+            optionValues={["all", "10", "50", "200", "500", "1000"]} value={reviews}
+          />
+
         </div>
         <button
           className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded shadow-md"
-          onClick={() => {onFilter({rating: rating, priceRange: priceRange, discount: discount})}}
+          onClick={() => {onFilter({rating: rating, priceRange: priceRange, reviews: reviews})}}
         >
           Apply Filters
         </button>

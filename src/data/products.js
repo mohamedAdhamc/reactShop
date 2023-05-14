@@ -6,7 +6,7 @@ const products = [
       imageUrl: 'https://images.pexels.com/photos/4041391/pexels-photo-4041391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       rating: 4.5,
-      reviews: 10,
+      reviews: 14,
     },
     {
       id: 2,

@@ -5,7 +5,7 @@ import { useState } from "react";
 import products from "../data/products";
 
 const Home = ({cartItemIds, setCartItemIds}) => {
-      const [filters, setFilters] = useState({rating: "all", priceRange: "all", discount: "all"});
+      const [filters, setFilters] = useState({rating: "all", priceRange: "all", reviews: "all"});
     
       const ratingFilter = (item) => {
         return filters.rating !== "all" ? item.rating > parseInt(filters.rating) : true;
@@ -18,9 +18,13 @@ const Home = ({cartItemIds, setCartItemIds}) => {
         : true;
       }
 
+      const reviewsFilter = (item) => {
+        return filters.reviews !== "all" ? item.reviews > parseInt(filters.reviews) : true;
+      }
+
       const applyFilters = (item) => {
         // Only return items that pass all filters
-        return ratingFilter(item) && priceFilter(item);
+        return ratingFilter(item) && priceFilter(item) && reviewsFilter(item);
       }
 
       return (
