@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
 
 const FilterBar = ({ onFilter }) => {
-  const [rating, setRating] = useState('');
-  const [priceRange, setPriceRange] = useState('');
-  const [discount, setDiscount] = useState('');
-
-  const handleFilter = () => {
-    // Pass the selected filters to the parent component
-    onFilter({ rating, priceRange, discount });
-  };
+  const [rating, setRating] = useState('all');
+  const [priceRange, setPriceRange] = useState('all');
+  const [discount, setDiscount] = useState('all');
 
   return (
     <div className="bg-gray-100 py-4 px-6 shadow-md mb-5">
@@ -24,7 +19,7 @@ const FilterBar = ({ onFilter }) => {
               value={rating}
               onChange={(e) => setRating(e.target.value)}
             >
-              <option value="">All</option>
+              <option value="all">All</option>
               <option value="5">5 Stars</option>
               <option value="4">4 Stars &amp; Up</option>
               <option value="3">3 Stars &amp; Up</option>
@@ -42,12 +37,12 @@ const FilterBar = ({ onFilter }) => {
               value={priceRange}
               onChange={(e) => setPriceRange(e.target.value)}
             >
-              <option value="">All</option>
-              <option value="0-50">$0 - $50</option>
-              <option value="51-100">$51 - $100</option>
-              <option value="101-200">$101 - $200</option>
-              <option value="201-500">$201 - $500</option>
-              <option value="501+">$500+</option>
+              <option value="all">All</option>
+              <option value="50">Less than $50</option>
+              <option value="100">Less than $100</option>
+              <option value="200">Less than $200</option>
+              <option value="500">Less than $500</option>
+              <option value="inf">More than $500</option>
             </select>
           </div>
           <div className="flex items-center space-x-2">
@@ -60,7 +55,7 @@ const FilterBar = ({ onFilter }) => {
               value={discount}
               onChange={(e) => setDiscount(e.target.value)}
             >
-              <option value="">All</option>
+              <option value="all">All</option>
               <option value="10">10% Off</option>
               <option value="20">20% Off</option>
               <option value="30">30% Off</option>
@@ -71,7 +66,7 @@ const FilterBar = ({ onFilter }) => {
         </div>
         <button
           className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded shadow-md"
-          onClick={handleFilter}
+          onClick={() => {onFilter({rating: rating, priceRange: priceRange, discount: discount})}}
         >
           Apply Filters
         </button>
