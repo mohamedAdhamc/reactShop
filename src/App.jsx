@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
-import Product from './components/Product'
 import { Route, Routes } from "react-router-dom";
 import Cart from './routes/Cart';
 import Home from './routes/Home';
 import About from './routes/About';
 import Contact from './routes/Contact';
+import ErrorPage from './routes/ErrorPage';
 
 function App() {
 
@@ -18,6 +17,7 @@ function App() {
         <Route path='/cart' element={<Cart />}></Route>
         <Route path='/about' element={<About />}></Route>
         <Route path='/contact' element={<Contact />}></Route>
+        <Route path='*' element={<ErrorPage />}></Route>
       </Routes>
     </div>
   )
