@@ -4,7 +4,7 @@ import Banner from "../components/Discountbanner";
 import { useState } from "react";
 import products from "../data/products";
 
-const Home = () => {
+const Home = ({cartItemIds, setCartItemIds}) => {
       const [filters, setFilters] = useState({rating: "all", priceRange: "all", discount: "all"});
     
       const ratingFilter = (item) => {
@@ -30,6 +30,7 @@ const Home = () => {
           <div className="grid grid-cols-3 gap-4">
                 {products.filter(applyFilters).map((product) => (
                   <Product
+                    id={product.id}
                     key={product.id}
                     title={product.title}
                     price={product.price}
@@ -37,6 +38,8 @@ const Home = () => {
                     description={product.description}
                     rating={product.rating}
                     reviews={product.reviews}
+                    cartItemIds={cartItemIds}
+                    setCartItemIds={setCartItemIds}
                   />
                 ))}
           </div>

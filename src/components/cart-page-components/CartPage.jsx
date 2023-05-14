@@ -3,7 +3,7 @@ import CartItems from './CartItems';
 import OrderSummary from './OrderSummary';
 import CheckoutButton from './CheckoutButton';
 
-const CartPage = () => {
+const CartPage = ({cartItemIds, setCartItemIds}) => {
   // Fetch cart data and store it in a state
 
   return (
@@ -12,7 +12,7 @@ const CartPage = () => {
         <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
         <div className="flex flex-col md:flex-row">
           <div className="w-full md:w-2/3 pr-4">
-            <CartItems />
+            <CartItems cartItemIds={cartItemIds} setCartItemIds={setCartItemIds}/>
             {/* Render other components related to cart items */}
           </div>
           <div className="w-full md:w-1/3">

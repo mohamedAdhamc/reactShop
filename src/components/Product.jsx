@@ -1,6 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Product = ({ title, price, imageUrl, description, rating, reviews }) => {
+const Product = ({ id, title, price, imageUrl, description, rating, reviews, cartItemIds, setCartItemIds }) => {
+
+  const addProduct = () => {
+    if (!cartItemIds.includes(id)) {
+      setCartItemIds([...cartItemIds, id]);
+    }
+  }
+
   return (
     <div className="max-w-xs mx-auto bg-white shadow-md rounded-lg overflow-hidden transition duration-300 ease-in-out transform hover:scale-105">
       <img className="object-cover object-center h-48 w-full" src={imageUrl} alt={title} />
@@ -24,7 +32,7 @@ const Product = ({ title, price, imageUrl, description, rating, reviews }) => {
           <span className="text-gray-600 ml-2">{reviews} reviews</span>
         </div>
         <p className="text-gray-700 mt-2">{description}</p>
-        <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={addProduct}>
           Add to Cart
         </button>
       </div>
