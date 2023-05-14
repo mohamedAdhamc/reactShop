@@ -1,6 +1,11 @@
+import FeedbackForm from "../components/FeedbackForm";
+
 const Contact = () => {
     return (
-        <h1>Contact page!</h1>
+        <div className="contact-page w-[40vw]">
+            <h1>Contact us!</h1>
+            <FeedbackForm />
+        </div>
     );
 }
  
