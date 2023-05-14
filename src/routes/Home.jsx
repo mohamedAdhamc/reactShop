@@ -36,9 +36,6 @@ const Home = () => {
     
       return (
         <div className="home">
-          {/* <h1 className="text-3xl font-bold underline">
-            Hello world!
-          </h1> */}
           <Navbar />
           <FilterBar onFilter={handleFilter} />
          <div className="grid grid-cols-3 gap-4">

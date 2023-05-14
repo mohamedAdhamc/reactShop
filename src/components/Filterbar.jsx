@@ -11,7 +11,7 @@ const FilterBar = ({ onFilter }) => {
   };
 
   return (
-    <div className="bg-gray-100 py-4 px-6 shadow-md">
+    <div className="bg-gray-100 py-4 px-6 shadow-md mb-5">
       <div className="flex flex-wrap items-center justify-between">
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
