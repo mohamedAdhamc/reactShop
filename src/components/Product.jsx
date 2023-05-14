@@ -7,6 +7,13 @@ const Product = ({ id, title, price, imageUrl, description, rating, reviews, dis
     if (!cartItemIds.includes(id)) {
       setCartItemIds([...cartItemIds, id]);
     }
+    const toastElement = document.createElement("div");
+    toastElement.textContent = "Item added to cart!";
+    toastElement.classList.add("text-white", "bg-blue-500", "py-2", "px-4", "rounded", "fixed", "top-0", "left-0", "z-10");
+    document.body.appendChild(toastElement);
+    setTimeout(() => {
+      toastElement.remove();
+    }, 2000);
   }
 
   return (
