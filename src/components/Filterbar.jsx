@@ -9,41 +9,16 @@ const FilterBar = ({ onFilter }) => {
     <div className="bg-gray-100 py-4 px-6 shadow-md mb-5">
       <div className="flex flex-wrap items-center justify-between">
         <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-2">
-            <label htmlFor="ratingFilter" className="text-gray-800 font-medium">
-              Rating:
-            </label>
-            <select
-              id="ratingFilter"
-              className="border border-gray-300 rounded p-1"
-              value={rating}
-              onChange={(e) => setRating(e.target.value)}
-            >
-              <option value="all">All</option>
-              <option value="4">4 Stars &amp; Up</option>
-              <option value="3">3 Stars &amp; Up</option>
-              <option value="2">2 Stars &amp; Up</option>
-              <option value="1">1 Star &amp; Up</option>
-            </select>
-          </div>
-          <div className="flex items-center space-x-2">
-            <label htmlFor="priceFilter" className="text-gray-800 font-medium">
-              Price Range:
-            </label>
-            <select
-              id="priceFilter"
-              className="border border-gray-300 rounded p-1"
-              value={priceRange}
-              onChange={(e) => setPriceRange(e.target.value)}
-            >
-              <option value="all">All</option>
-              <option value="50">Less than $50</option>
-              <option value="100">Less than $100</option>
-              <option value="200">Less than $200</option>
-              <option value="500">Less than $500</option>
-              <option value="inf">More than $500</option>
-            </select>
-          </div>
+          <FilterItem id={"ratingFilter"} label={"Rating:"} onChange={(e) => setRating(e.target.value)}
+            options={["All", "4 Stars & Up", "3 Stars & Up", "2 Stars & Up", "1 Stars & Up",,]}
+            optionValues={["all", "4", "3", "2", "1"]} value={rating}
+          />
+
+          <FilterItem id={"priceFilter"} label={"Price Range:"} onChange={(e) => setPriceRange(e.target.value)}
+            options={["All", "Less than $50", "Less than $100", "Less than $200", "Less than $500", "More than $500"]}
+            optionValues={["all", "50", "100", "200", "500", "inf"]} value={priceRange}
+          />
+
           <div className="flex items-center space-x-2">
             <label htmlFor="discountFilter" className="text-gray-800 font-medium">
               Discount:
@@ -73,5 +48,27 @@ const FilterBar = ({ onFilter }) => {
     </div>
   );
 };
+
+const FilterItem = ({ id, label, value, onChange, options, optionValues }) => {
+  return (
+    <div className="flex items-center space-x-2">
+            <label htmlFor={id} className="text-gray-800 font-medium">
+              {label}
+            </label>
+            <select
+              id={id}
+              className="border border-gray-300 rounded p-1"
+              value={value}
+              onChange={onChange}
+            >
+              {options.map((option, i) => {
+                return (
+                  <option value={optionValues[i]}>{option}</option>
+                )
+              })}
+            </select>
+          </div>
+  );
+}
 
 export default FilterBar;
