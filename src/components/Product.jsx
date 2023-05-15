@@ -17,7 +17,7 @@ const Product = ({ id, title, price, imageUrl, description, rating, reviews, dis
   }
 
   return (
-    <div className="max-w-xs mx-auto bg-white shadow-md rounded-lg overflow-hidden transition duration-300 ease-in-out transform hover:scale-105">
+    <div className="max-w-xs min-w-full  mx-auto bg-white shadow-md rounded-lg overflow-hidden transition duration-300 ease-in-out transform hover:scale-105">
       <img className="object-cover object-center h-48 w-full" src={imageUrl} alt={title} />
       <div className="p-4">
         <h2 className="text-gray-900 font-bold text-lg">{title}</h2>
