@@ -20,7 +20,7 @@ const CartPage = ({cartItemIds, setCartItemIds}) => {
   return (
     <div className=" bg-gray-50 shadow-md rounded-lg overflow-hidden">
       <div className="p-8">
-        <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
+        <h1 className="text-3xl font-bold mb-6 dark:text-gray-700">Your Cart</h1>
         <div className="flex flex-col md:flex-row">
           <div className="w-full md:w-2/3 pr-4">
             <CartItems cartItemIds={cartItemIds} setCartItemIds={setCartItemIds}/>
