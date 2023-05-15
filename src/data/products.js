@@ -7,6 +7,7 @@ const products = [
     description: 'Delicious milk chocolate bar from Cadbury.',
     rating: 4.5,
     reviews: 14,
+    discount: 1
   },
   {
     id: 2,

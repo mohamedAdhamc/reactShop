@@ -6,7 +6,7 @@ const Cart = ({cartItemIds, setCartItemIds}) => {
     };
     return (
     <div style={wStyle}>
-      <h1 className=" pb-[8vh]">My Shopping Cart</h1>
+      <h1 className=" pb-[8vh]">Shopping Cart</h1>
       <CartPage cartItemIds={cartItemIds} setCartItemIds={setCartItemIds}/>
     </div>
 );
